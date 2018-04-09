@@ -26,7 +26,7 @@ docker build --rm -t yourname/spark:2.1.1 .
 * in your /etc/hosts file add $(boot2docker ip) as host 'sandbox' to make it easier to access your sandbox UI
 * open yarn UI ports when running container
 ```
-docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h yourname/spark:2.1.1 bash
+docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h -e LANG="en_US.UTF-8" yourname/spark:2.1.1 bash
 ```
 or
 ```
