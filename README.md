@@ -1,7 +1,11 @@
 Apache Spark on Docker
 ==========
 Please download spark-2.1.1-bin-hadoop2.6.tgz first! and put it to this dict.
-Fork from https://github.com/sequenceiq/docker-spark
+
+download url:
+https://archive.apache.org/dist/spark/spark-2.1.1/spark-2.1.1-bin-hadoop2.6.tgz
+
+This project is forked from https://github.com/sequenceiq/docker-spark
 
 I just update the spark version
 
