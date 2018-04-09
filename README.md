@@ -1,22 +1,19 @@
 Apache Spark on Docker
 ==========
 Please download spark-2.1.1-bin-hadoop2.6.tgz first! and put it to this dict.
+Fork from https://github.com/sequenceiq/docker-spark
 
-[![DockerPulls](https://img.shields.io/docker/pulls/sequenceiq/spark.svg)](https://registry.hub.docker.com/u/sequenceiq/spark/)
-[![DockerStars](https://img.shields.io/docker/stars/sequenceiq/spark.svg)](https://registry.hub.docker.com/u/sequenceiq/spark/)
+I just update the spark version
 
 
 This repository contains a Docker file to build a Docker image with Apache Spark. This Docker image depends on our previous [Hadoop Docker](https://github.com/sequenceiq/hadoop-docker) image, available at the SequenceIQ [GitHub](https://github.com/sequenceiq) page.
 The base Hadoop Docker image is also available as an official [Docker image](https://registry.hub.docker.com/u/sequenceiq/hadoop-docker/).
 
-##Pull the image from Docker Repository
-```
-docker pull sequenceiq/spark:1.6.0
 ```
 
 ## Building the image
 ```
-docker build --rm -t sequenceiq/spark:1.6.0 .
+docker build --rm -t yourname/spark:2.1.1 .
 ```
 
 ## Running the image
@@ -25,16 +22,16 @@ docker build --rm -t sequenceiq/spark:1.6.0 .
 * in your /etc/hosts file add $(boot2docker ip) as host 'sandbox' to make it easier to access your sandbox UI
 * open yarn UI ports when running container
 ```
-docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox sequenceiq/spark:1.6.0 bash
+docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h yourname/spark:2.1.1 bash
 ```
 or
 ```
-docker run -d -h sandbox sequenceiq/spark:1.6.0 -d
+docker run -d -h yourname/spark:2.1.1 -d
 ```
 
 ## Versions
 ```
-Hadoop 2.6.0 and Apache Spark v1.6.0 on Centos
+Hadoop 2.6.0 and Apache Spark v2.1.1 on Centos
 ```
 
 ## Testing
@@ -72,7 +69,7 @@ spark-submit \
 --driver-memory 1g \
 --executor-memory 1g \
 --executor-cores 1 \
-$SPARK_HOME/lib/spark-examples-1.6.0-hadoop2.6.0.jar
+$SPARK_HOME/jars/spark-examples-2.1.1-hadoop2.6.0.jar
 ```
 
 Estimating Pi (yarn-client mode):
@@ -85,7 +82,7 @@ spark-submit \
 --driver-memory 1g \
 --executor-memory 1g \
 --executor-cores 1 \
-$SPARK_HOME/lib/spark-examples-1.6.0-hadoop2.6.0.jar
+$SPARK_HOME/jars/spark-examples-2.1.1-hadoop2.6.0.jar
 ```
 
 ### Submitting from the outside of the container
